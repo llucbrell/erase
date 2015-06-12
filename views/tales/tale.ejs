@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="icon" type="image/png" href="../favicon.png" />
+<title><%= title %></title>
+ 
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <h2>e-rase: cuentacuentos y preguntas</h2>
+    Pregunta: <%= pregunta %><p>
+    <form method="get" action="/tales/answer">
+    <input type="text" name="respuesta" value="responda aquí">
+    <input type="submit" value="Enviar">
+    </form>
+  </body>
+</html>
