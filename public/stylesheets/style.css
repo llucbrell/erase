@@ -1,0 +1,6 @@
+.autorBackground{
+	height: 350px;
+	background-image: url("../images/hobbes.jpg");
+	background-position: bottom, center;
+	background-repeat: no-repeat; 
+}

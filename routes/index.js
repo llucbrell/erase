@@ -11,5 +11,6 @@ router.get('/', function(req, res) {
 
 router.get('/tales/tale', talesController.tale);
 router.get('/tales/answer', talesController.answer);
+router.get('/autor', talesController.autor);
 
 module.exports = router;
