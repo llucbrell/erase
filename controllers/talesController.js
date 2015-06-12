@@ -1,7 +1,7 @@
 // GET/tales/tale
 
 exports.tale= function (req, res) {
-   res.render('tales/tale', {title: 'e-rase' , pregunta: '¿Quién escribió el soldadito de plomo?'});
+   res.render('tales/tale', {pregunta: '¿Quién escribió el soldadito de plomo?'});
 
 };
 
@@ -9,10 +9,10 @@ exports.tale= function (req, res) {
 
 exports.answer= function(req, res) {
     if(req.query.respuesta=== 'Andersen'){
-    	res.render('tales/answer', {title: 'e-rase' ,respuesta: 'correcto'});
+    	res.render('tales/answer', {respuesta: 'correcto'});
     }
     else{
-        res.render('tales/answer', {title: 'e-rase' ,respuesta: 'incorrecto'});
+        res.render('tales/answer', {respuesta: 'incorrecto'});
     	
     }
 }
