@@ -33,14 +33,20 @@ var Question= sequelize.import(path.join(__dirname, 'question'));
 exports.Question = Question;//exportar definición de la tabla Quiz
 
 //creamos e incializamos la tabla de preguntas
-sequelize.sync().success(function(){
+sequelize.sync().then(function(){
 	//success(..) ejecuta el manejador una vez creada la tabla
-	Question.count().success(function (count){
+	Question.count().then(function (count){
 		if (count === 0){//la tabla se inicaliza solo si es vacía
          Question.create({ pregunta: "Autor del Soldadito de Plomo",
                            respuesta: "Andersen"
+                         });
+         Question.create({ pregunta: "¿Muere el Soldadito?",
+                           respuesta:"Si"
+                         });
+         Question.create({ pregunta: "¿Se enamora el Soldadito?",
+                           respuesta:"Si"
                          })
-         .success(function(){console.log("Base de datos inicializada");});
+         .then(function(){console.log("Base de datos inicializada");});
 		}
 	});
 });

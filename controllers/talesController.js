@@ -1,10 +1,10 @@
-var models = require('../models/models.js')
+var models = require('../models/models.js');
 
 // GET/tales/tale
-exports.tale= function (req, res) {
-  models.Question.findAll().success(function (question){
-   res.render('tales/tale', {pregunta: question[0].pregunta});
-  })
+exports.showQuestion= function (req, res) {
+  models.Question.find(req.params.questionId).then(function (question){
+   res.render('tales/showquestion', {question: question});
+  });
 };
 
 exports.cuento= function (req, res) {
@@ -15,20 +15,28 @@ exports.cuento= function (req, res) {
 //GET tales/answer
 
 exports.answer= function(req, res) {
-  models.Question.findAll().success(function (question){
-    if(req.query.respuesta=== question[0].respuesta){
-    	res.render('tales/answer', {respuesta: 'correcto'});
+  models.Question.find(req.params.questionId).then(function (question){
+    if(req.query.respuesta === question.respuesta){
+    	res.render('tales/answer',
+       { question: question, respuesta: 'correcto'});
     }
     else{
-        res.render('tales/answer', {respuesta: 'incorrecto'});
+        res.render('tales/answer', 
+        { question: question, respuesta: 'incorrecto'});
     	
     }
-  })
-}
+  });
+};
 
+exports.questionIndex = function (req, res){
+  models.Question.findAll().then(function (questions){
+    res.render('tales/index.ejs', {questions: questions});
+  });
+
+};
 
 //GET autor
 
 exports.autor= function (req, res) {
 	res.render('tales/autor');
-}
+};

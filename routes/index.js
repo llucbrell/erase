@@ -9,9 +9,15 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'e-rase' });
 });
 
-router.get('/tales/tale', talesController.tale);
-router.get('/tales/answer', talesController.answer);
+
+
+//definición de rutas
 router.get('/autor', talesController.autor);
 router.get('/tales/cuento', talesController.cuento);
+
+//para manejo de DB
+router.get('/tales/',                            talesController.questionIndex);
+router.get('/tales/:questionId(\\d+)',           talesController.showQuestion);
+router.get('/tales/:questionId(\\d+)/answer',    talesController.answer);
 
 module.exports = router;
