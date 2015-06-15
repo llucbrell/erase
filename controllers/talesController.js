@@ -1,8 +1,10 @@
+var models = require('../models/models.js')
+
 // GET/tales/tale
-
 exports.tale= function (req, res) {
-   res.render('tales/tale', {pregunta: '¿Quién escribió el soldadito de plomo?'});
-
+  models.Question.findAll().success(function (question){
+   res.render('tales/tale', {pregunta: question[0].pregunta});
+  })
 };
 
 exports.cuento= function (req, res) {
@@ -13,13 +15,15 @@ exports.cuento= function (req, res) {
 //GET tales/answer
 
 exports.answer= function(req, res) {
-    if(req.query.respuesta=== 'Andersen'){
+  models.Question.findAll().success(function (question){
+    if(req.query.respuesta=== question[0].respuesta){
     	res.render('tales/answer', {respuesta: 'correcto'});
     }
     else{
         res.render('tales/answer', {respuesta: 'incorrecto'});
     	
     }
+  })
 }
 
 
