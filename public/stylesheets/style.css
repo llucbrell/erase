@@ -83,3 +83,7 @@
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
 	background-color: #91B358;
 }
+
+.main{
+	padding: 5%;
+}
