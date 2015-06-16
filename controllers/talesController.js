@@ -1,10 +1,23 @@
 var models = require('../models/models.js');
+//Autoload - factoriza el codigo si ruta incluye :questionId
 
-// GET/tales/tale
+exports.load = function (req, res, next, questionId){
+    models.Question.find(questionId).then(
+      function (question){
+      if (question) {
+         req.question= question;
+         next();
+      }
+      else{ next(new Error('No existe questionId=' + questionId));}
+      }
+    ).catch(function (error) { next(error);});
+};
+
+
+
+// GET/tales/showquestion
 exports.showQuestion= function (req, res) {
-  models.Question.find(req.params.questionId).then(function (question){
-   res.render('tales/showquestion', {question: question});
-  });
+  res.render('tales/showquestion', {question: req.question});
 };
 
 exports.cuento= function (req, res) {
@@ -15,24 +28,21 @@ exports.cuento= function (req, res) {
 //GET tales/answer
 
 exports.answer= function(req, res) {
-  models.Question.find(req.params.questionId).then(function (question){
-    if(req.query.respuesta === question.respuesta){
+  var resultado= 'Incorrecto';
+     if(req.query.respuesta === req.question.respuesta){
+      resultado='Correcto';
+    }
     	res.render('tales/answer',
-       { question: question, respuesta: 'correcto'});
-    }
-    else{
-        res.render('tales/answer', 
-        { question: question, respuesta: 'incorrecto'});
-    	
-    }
-  });
+       { question: req.question, respuesta: resultado});
 };
 
-exports.questionIndex = function (req, res){
-  models.Question.findAll().then(function (questions){
-    res.render('tales/index.ejs', {questions: questions});
-  });
 
+exports.questionIndex = function (req, res){
+  models.Question.findAll().then(
+    function (questions){
+    res.render('tales/index.ejs', {questions: questions});
+  }
+ ).catch(function (error){next (error);});
 };
 
 //GET autor

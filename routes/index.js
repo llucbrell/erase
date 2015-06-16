@@ -9,7 +9,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'e-rase' });
 });
 
-
+//carga los datos de la base de datos en el request
+//y los envía al siguiente middleware... si hay un error
+//es gestionado desde este middleware
+router.param('questionId', talesController.load);
 
 //definición de rutas
 router.get('/autor', talesController.autor);
