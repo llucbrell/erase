@@ -1,6 +1,85 @@
+@font-face {
+	font-family: romance;
+	src: url("/fonts/rom.ttf");
+}
+
+
+
+
 .autorBackground{
 	height: 350px;
-	background-image: url("../images/hobbes.jpg");
+	background-image: url("/images/hobbes.jpg");
 	background-position: bottom, center;
 	background-repeat: no-repeat; 
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+	color: white;
+}
+.index-subtitle, h3{
+	font-size: 30pt;
+	font-family: romance;
+	color: #91B358;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand{
+	color: white;
+}
+.footer{
+	padding: 3%;
+	background-color: #B13911;
+}
+.minav{
+	background-color: #B13911;	
+}
+.navbar-default .navbar-nav > li > a{
+	color:white;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover{
+	background-color: #91B358;	
+
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a {
+    background-color: #A03D1C;	
+    color:white;	
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+  color: #91B358;
+}
+
+.navar-default .navar-nav > .focus >a{
+	background-color:  #DB6139;	 
+}
+.minav a{
+	color: white;
+}
+.footer a{
+	color: white;
+}
+.footer a:hover{
+	color: #91B358;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+
+  color: #91B358;
+}
+
+#line1, #line2, #line3{
+	color: white;
+	background-color: white;
+}
+
+#line1:active, #line2:active, #line3:active{
+   background-color: #91B358;	
+}
+.navbar-default .navbar-toggle{
+	border-color: #B13911;
+}
+.index-title{
+	color: #91B358;
+	font-size: 50pt;
+	font-family: romance;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+	background-color: #91B358;
 }

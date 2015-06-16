@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/bootstrap.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="/bootstrap/sticky-footer-navbar.css" rel="stylesheet">
 
@@ -39,23 +39,23 @@ ___________________________________________________
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top minav">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" id="mibutton" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar line" id="line1"></span>
+            <span class="icon-bar line"id="line2"></span>
+            <span class="icon-bar line"id="line3"></span>
           </button>
-          <a class="navbar-brand" href="#">e-rase</a>
+          <a class="navbar-brand" href="/"><i class="fa fa-magic fa-fw"></i>&nbsp; e-rase</a>
         </div>
         <div style="height: 1px;" aria-expanded="false" id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Inicio</a></li>
-            <li><a href="/tales/cuento">Cuentos</a></li>
-             <li><a href="/tales/">Preguntas</a></li>
-            <li><a href="/autor">Autor</a></li>
+            <li class="active"><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp; Inicio</a></li>
+            <li><a href="/tales/cuento"><i class="fa fa-book fa-fw"></i>&nbsp; Cuentos</a></li>
+             <li><a href="/tales/"><i class="fa fa-question fa-fw"></i>&nbsp; Preguntas</a></li>
+            <li><a href="/autor"><i class="fa fa-pencil-square-o fa-fw"></i>&nbsp; Autor</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -71,9 +71,12 @@ ___________________________________________________
     </div>
 
     <footer class="footer">
-      <div class="container">
-        <p class="text-muted"><a href="https://github.com/llucbrell/erase">GitHub</a></p>
-      </div>
+      
+        <p class="text-center">
+        <a href="https://es.wikipedia.org/wiki/Cuento" class="fa fa-wordpress fa-2x fa-spin"></a>
+        <a href="https://github.com/llucbrell/erase" class="fa fa-github-alt fa-2x fa-spin"></a>
+        <a href="http://www.postgresql.org/" class="fa fa-database fa-2x fa-spin"></a></p>
+      
     </footer>
 
 
