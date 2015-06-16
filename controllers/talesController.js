@@ -38,11 +38,24 @@ exports.answer= function(req, res) {
 
 
 exports.questionIndex = function (req, res){
-  models.Question.findAll().then(
+  if (req.query.search){
+    var search= "%"+req.query.search+"%";
+    var moreOneWordSearch= search.replace(" ", "%");
+    models.Question.findAll({where:["pregunta like ?", moreOneWordSearch]}).then(
+       function (questions){
+       res.render('tales/index.ejs', {questions: questions});
+      }
+   ).catch(function (error){next (error);});
+  
+    }
+  else{
+    models.Question.findAll().then(
     function (questions){
     res.render('tales/index.ejs', {questions: questions});
+    }
+   ).catch(function (error){next (error);});
+
   }
- ).catch(function (error){next (error);});
 };
 
 //GET autor
@@ -50,3 +63,4 @@ exports.questionIndex = function (req, res){
 exports.autor= function (req, res) {
 	res.render('tales/autor');
 };
+

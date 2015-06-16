@@ -36,7 +36,7 @@ exports.Question = Question;//exportar definición de la tabla Quiz
 sequelize.sync().then(function(){
 	//success(..) ejecuta el manejador una vez creada la tabla
 	Question.count().then(function (count){
-		if (count === 0){//la tabla se inicaliza solo si es vacía
+		if (count < 3){//la tabla se inicaliza solo si es vacía
          Question.create({ pregunta: "Autor del Soldadito de Plomo",
                            respuesta: "Andersen"
                          });

@@ -1,7 +1,16 @@
-<div class="text-center"></div>
-<table>
+<div class="text-center">
+<div class="search">
+<form method="get" action="/tales/">
+    <input type="text" name="search" value="Palabra/s"/>
+    <input type="submit" value="Buscar">
+    </form>
+</div>
+<div class="text-center">
+<table class="table table-striped table-bordered">
 	<% var i; for(i=0; i<questions.length; i++){ %>
      <tr><td><a href="<%= questions[i].id %>"><%= questions[i].pregunta %></a></td></tr>
      <% } %>
 
 </table>
+</div>
+</div>
