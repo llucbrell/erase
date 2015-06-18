@@ -28,6 +28,6 @@ router.get('/tales/new', talesController.newQuestion);
 router.post('/tales/create', talesController.createQuestion);
 //para manejo cuentosDB
 router.get('/tales/cuento/:cuentoId(\\d+)', talesController.showCuento);
-
-
+router.get('/tales/:questionId(\\d+)/editquestion',talesController.editQuestion);
+router.put('/tales/:questionId(\\d+)', talesController.updateQuestion);
 module.exports = router;

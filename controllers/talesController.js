@@ -94,7 +94,15 @@ exports.newQuestion= function(req, res){
 
 //POST /tales/create
 exports.createQuestion= function (req, res){
-    var question = models.Question.build(req.body.question);
+var question = models.Question.build(req.body.question);
+
+/*
+req.question.validate().then(
+  function (err){
+    if (err){
+      res.render('tales/newquestion', {question: question, errors: err.errors});
+    }
+*/
 var errors= question.validate();
 
 if(errors){
@@ -102,15 +110,53 @@ if(errors){
   var errores= new Array();
   for (var prop in errors)errores[i++]={message: errors[prop]};
     res.render('tales/newquestion', {question: question, errors: errores});
-}
+ }
 else{
       //guarda DB los campos pregunta y respuesta de question
     question.save({fields: ["pregunta", "respuesta"]}).then(function(){
       res.redirect('/tales/');}
   );
 
-}
-    
-   
+ }
+   }
 
-};
+   /*);
+};*/
+
+//GET tales/:id/edit
+exports.editQuestion = function(req, res){
+   var question= req.question;
+   res.render('tales/editquestion', {question: question, errors:[]});
+}
+
+//PUT /tales/:id
+
+exports.updateQuestion= function(req,res){
+  req.question.pregunta =req.body.question.pregunta;
+  req.question.respuesta=req.body.question.respuesta;
+
+var question = models.Question.build(req.body.question);
+var errors= question.validate();
+
+if(errors){
+  var i=0;
+  var errores= new Array();
+  for (var prop in errors)errores[i++]={message: errors[prop]};
+    res.render('tales/editquestion', {question: question, errors: errores});
+ }
+/*
+req.question.validate()
+.then(
+    function (err){
+      if(err){
+        res.render('question/editquestion', {question: req.question, errors: err.errors});
+      }
+*/
+ else{
+  req.question.save({fields: ["pregunta", "respuesta"]}).then(function(){
+    res.redirect('/tales/');});
+ }
+}
+/*
+);
+};*/
