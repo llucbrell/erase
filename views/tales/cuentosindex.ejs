@@ -1,0 +1,10 @@
+<div class="text-center">
+
+
+<table class="table table-striped table-bordered">
+	<% var i; for(i=0; i<cuentos.length; i++){ %>
+     <tr><td><a href="cuento/<%= cuentos[i].id %>"><%= cuentos[i].titulo %></a></td></tr>
+     <% } %>
+
+</table>
+</div>
