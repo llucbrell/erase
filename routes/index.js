@@ -6,7 +6,7 @@ var talesController= require('../controllers/talesController');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'e-rase' });
+  res.render('index1', { title: 'e-rase' });
 });
 
 //carga los datos de la base de datos en el request
