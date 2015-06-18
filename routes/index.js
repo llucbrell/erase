@@ -24,7 +24,8 @@ router.get('/tales/cuentosindex', talesController.cuentosIndex);
 router.get('/tales/',                            talesController.questionIndex);
 router.get('/tales/:questionId(\\d+)',           talesController.showQuestion);
 router.get('/tales/:questionId(\\d+)/answer',    talesController.answer);
-
+router.get('/tales/new', talesController.newQuestion);
+router.post('/tales/create', talesController.createQuestion);
 //para manejo cuentosDB
 router.get('/tales/cuento/:cuentoId(\\d+)', talesController.showCuento);
 

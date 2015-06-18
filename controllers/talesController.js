@@ -84,3 +84,21 @@ exports.autor= function (req, res) {
 	res.render('tales/autor');
 };
 
+// GET/tales/new
+
+exports.newQuestion= function(req, res){
+  var question = models.Question.build(//crea un objeto question
+    {pregunta: "pregunta", respuesta:"respuesta"});
+  res.render('tales/newquestion', {question: question});
+}
+
+//POST /tales/create
+exports.createQuestion= function (req, res){
+    var question = models.Question.build(req.body.question);
+
+    //guarda DB los campos pregunta y respuesta de question
+    question.save({fields: ["pregunta", "respuesta"]}).then(function(){
+      res.redirect('/tales/');
+    })
+
+};
