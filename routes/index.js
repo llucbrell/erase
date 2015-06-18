@@ -30,4 +30,6 @@ router.post('/tales/create', talesController.createQuestion);
 router.get('/tales/cuento/:cuentoId(\\d+)', talesController.showCuento);
 router.get('/tales/:questionId(\\d+)/editquestion',talesController.editQuestion);
 router.put('/tales/:questionId(\\d+)', talesController.updateQuestion);
+router.delete('/tales/:questionId(\\d+)', talesController.destroyQuestion);
+
 module.exports = router;

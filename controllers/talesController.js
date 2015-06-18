@@ -160,3 +160,12 @@ req.question.validate()
 /*
 );
 };*/
+
+
+//DELETE /tales/:id
+
+exports.destroyQuestion = function (req, res){
+  req.question.destroy().then(function(){
+    res.redirect('/tales/');
+  }).catch(function(error){next(error)});
+}
