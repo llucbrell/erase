@@ -1,5 +1,14 @@
 
 Añadir pregunta: <p>
+  <% if (errors.length) { %>
+    <span id="ErrorMsg">
+    	Por favor introduce en el cajetín...<br/>
+    <% for (var i in errors){ %>
+    <span> <%= errors[i].message %>    </span>
+     <% } %>
+     </span>
+  <% } %>
+
 	<form method="post" action="/tales/create">
 		<% include _form.ejs %>
 	</form>

@@ -89,16 +89,28 @@ exports.autor= function (req, res) {
 exports.newQuestion= function(req, res){
   var question = models.Question.build(//crea un objeto question
     {pregunta: "pregunta", respuesta:"respuesta"});
-  res.render('tales/newquestion', {question: question});
-}
+  res.render('tales/newquestion', {question: question, errors: []});
+};
 
 //POST /tales/create
 exports.createQuestion= function (req, res){
     var question = models.Question.build(req.body.question);
+var errors= question.validate();
 
-    //guarda DB los campos pregunta y respuesta de question
+if(errors){
+  var i=0;
+  var errores= new Array();
+  for (var prop in errors)errores[i++]={message: errors[prop]};
+    res.render('tales/newquestion', {question: question, errors: errores});
+}
+else{
+      //guarda DB los campos pregunta y respuesta de question
     question.save({fields: ["pregunta", "respuesta"]}).then(function(){
-      res.redirect('/tales/');
-    })
+      res.redirect('/tales/');}
+  );
+
+}
+    
+   
 
 };

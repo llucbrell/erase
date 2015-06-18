@@ -87,3 +87,7 @@
 .main{
 	padding: 5%;
 }
+
+#ErrorMsg{
+	color: #91B358;
+}
