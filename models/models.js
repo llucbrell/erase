@@ -40,20 +40,23 @@ sequelize.sync().then(function(){
 	Question.count().then(function (count){
 		if (count < 3){//la tabla se inicaliza solo si es vacía
          Question.create({ pregunta: "Autor del Soldadito de Plomo",
-                           respuesta: "Andersen"
+                           respuesta: "Andersen",
+                           tiempo: 40
                          });
          Question.create({ pregunta: "¿Muere el Soldadito?",
-                           respuesta:"Si"
+                           respuesta:"Si",
+                           tiempo: 35
                          });
          Question.create({ pregunta: "¿Se enamora el Soldadito?",
-                           respuesta:"Si"
+                           respuesta:"Si",
+                           tiempo: 15
                          })
          .then(function(){console.log("Base de datos Question inicializada");});
 		}
 	});
 
   Cuento.count().then(function (count){
-       if (count < 7){
+       if (count < 3){
         Cuento.create({titulo: "Caperucita Roja" , cuento: "Éranse una vez veinticinco soldados de pl"
                      });                    
         Cuento.create({titulo: "La Cenicienta" , cuento: "En el corazón del bosque vivían tres cerditos que "

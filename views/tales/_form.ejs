@@ -1,6 +1,19 @@
-<label for="preg" class="rem">Pregunta:</label>
-<input type="text" id="preg" name="question[pregunta]" value="<%= question.pregunta %>">
-<label for="resp" class="rem">Respuesta:</label>
-<input type="text" id="resp" name="question[respuesta]" value="<%= question.respuesta %>">
-<a href="/tales"><button type="button" class="btn btn-primary">Cancelar</button></a>
-<input type="submit" value="Guardar" class="btn btn-info">
+<p><label for="preg" class="rem">Pregunta:</label>
+<input type="text" id="preg" name="question[pregunta]" value="<%= question.pregunta %>"></p>
+<p><label for="resp" class="rem">Respuesta:</label>
+<input type="text" id="resp" name="question[respuesta]" value="<%= question.respuesta %>"></p>
+<p><a href="/tales"><button type="button" class="btn btn-primary">Cancelar</button></a>
+<input type="submit" value="Guardar" class="btn btn-info"></p>
+<p>Tiempo máximo para responder a la pregunta</p>
+<select name="question[tiempo]">
+ <option value=50 <% if(question.tiempo && question.tiempo===50){%> selected <%} %>>50 segundos</option>
+ <option value=45 <% if(question.tiempo && question.tiempo===45){%> selected <%} %>>45 segundos</option>
+ <option value=40 <% if(question.tiempo && question.tiempo===40){%> selected <%} %>>40 segundos</option>
+ <option value=35 <% if(question.tiempo && question.tiempo===35){%> selected <%} %>>35 segundos</option>
+ <option value=30 <% if(question.tiempo && question.tiempo===30){%> selected <%} %>>30 segundos</option>
+ <option value=25 <% if(question.tiempo && question.tiempo===25){%> selected <%} %>>25 segundos</option>
+ <option value=20 <% if(question.tiempo && question.tiempo===20){%> selected <%} %>>20 segundos</option>
+ <option value=15 <% if(question.tiempo && question.tiempo===15){%> selected <%} %>>15 segundo</option>
+ <option value=10 <% if(question.tiempo && question.tiempo===10){%> selected <%} %>>10 segundo</option>
+ <option value=5 <% if(question.tiempo && question.tiempo===5){%> selected <%} %>>5 segundos</option>
+</select>

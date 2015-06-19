@@ -113,7 +113,7 @@ if(errors){
  }
 else{
       //guarda DB los campos pregunta y respuesta de question
-    question.save({fields: ["pregunta", "respuesta"]}).then(function(){
+    question.save({fields: ["pregunta", "respuesta", "tiempo"]}).then(function(){
       res.redirect('/tales/');}
   );
 
@@ -134,6 +134,7 @@ exports.editQuestion = function(req, res){
 exports.updateQuestion= function(req,res){
   req.question.pregunta =req.body.question.pregunta;
   req.question.respuesta=req.body.question.respuesta;
+  req.question.tiempo=req.body.question.tiempo;
 
 var question = models.Question.build(req.body.question);
 var errors= question.validate();
@@ -153,7 +154,7 @@ req.question.validate()
       }
 */
  else{
-  req.question.save({fields: ["pregunta", "respuesta"]}).then(function(){
+  req.question.save({fields: ["pregunta", "respuesta", "tiempo"]}).then(function(){
     res.redirect('/tales/');});
  }
 }
