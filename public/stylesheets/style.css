@@ -5,7 +5,8 @@
 
 .borrar{
     border-style: none;
-    background-color: none;
+    border-radius: 50%;
+   
 }
 
 
@@ -95,7 +96,7 @@
 	color: #91B358;
 }
 
-#crear{float: right;}
+.crear{float: right;}
 
 .search{
 	margin-top: 6%;
@@ -103,6 +104,55 @@
 	}
 
 section	i, section a{
-		color: #DB6139;
+		transition: all 0.7s ease;
 		color: #77C1FE;
+		font-size: 15;
 	}
+
+section a i:hover{
+	font-size: 25px;
+	color: #91B358; 
+}	
+
+section a:hover{
+   font-size: 16px;
+   text-decoration: none;
+}
+.crear{
+	transition:all 0.7s ease;
+	font-size: 15;
+	color:#77C1FE;
+}
+.crear:hover{
+	font-size: 25px;
+	color: #91B358; 
+}
+
+.borrar{
+	float: right;
+	transition:all 0.7s ease;
+	font-size: 15;
+	
+}
+.borrar:hover{
+	font-size: 25px;
+	
+    background-color:#DB6139;
+}
+
+.borrar i{
+	transition: all 0.7 ease;
+	background-color: #DB6139;
+	border-radius: 50%;
+	color: white;
+	 
+}
+
+.borrar i:hover{
+	color: blue;
+	background-color: red;
+}
+
+.editar{
+	float: left;
+}

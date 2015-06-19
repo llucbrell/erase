@@ -1,6 +1,6 @@
 <div class="text-center">
 <h3>Índice de preguntas</h3>
-<a id="crear" href="/tales/new"><i class="fa fa-pencil fa-fw"></i>&nbsp;Crear</a>
+<a class="crear" href="/tales/new"><i class="fa fa-pencil fa-fw"></i>&nbsp;Crear</a>
 <div class="search text-left">
 <form method="get" action="/tales/">
  <button type="submit" value="Buscar"><i class="fa fa-search fa-fw"></i>&nbsp;</button>
@@ -71,10 +71,10 @@
 
 
 
-     <a href="<%= questions[i].id %>"><%= questions[i].pregunta %>&nbsp;&nbsp;</a><a href="<%= questions[i].id %>/editquestion"><i class="fa fa-wrench fa-fw"></i>&nbsp;</a>
+     <a href="<%= questions[i].id %>"><%= questions[i].pregunta %>&nbsp;&nbsp;</a><a href="<%= questions[i].id %>/editquestion"><i class="fa fa-wrench fa-fw editar"></i>&nbsp;</a>
      
       <button type="submit" class="borrar" onClick="return confirm('Seguro que quieres borrar... <%= questions[i].pregunta %>');">
-      <a href="javascript:document.insert.submit"><i class="fa fa-eraser fa-fw"></i></a>
+      <a href="javascript:document.insert.submit"><i class="fa fa-eraser fa-fw" id="borrar"></i></a>
       </button>
       </form>
      </td>
