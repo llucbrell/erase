@@ -1,9 +1,46 @@
 <form method="get" action="/tales/<%= question.id %>/answer">
     <p>Pregunta: <%= question.pregunta %></p>
+    <div id="enviarRespuesta">
     <input type="text" name="respuesta" value="responda aquí"/>
     <input type="submit" value="Enviar">
+    </div>
     </form>
 <div class="counter">
 <p>Responde rápido antes de que se acabe el tiempo</p>
-	<%= question.tiempo %> segundos
+
+<p id="cuenta"></p>
+<script type="text/javascript">
+
+ var time= <%= question.tiempo %>;                
+ 
+ function countdown(times){   
+ //console.log(times, cuenta); 
+checktime(times);
+time=time-1;
+ }
+function checktime(times){
+	if(times===0){
+		var cuenta =document.getElementById('cuenta');
+		var button =document.getElementById('enviarRespuesta');
+		//alert("se acabó el tiempo");
+		button.style.visibility="hidden";
+		cuenta.innerHTML= "Acabó el tiempo";
+		window.clearInterval(intervalo);
+		 }
+		 else{
+        var cuenta =document.getElementById('cuenta');
+        cuenta.innerHTML= times+ " " + "segundos";
+    }
+}
+ 	
+ intervalo=setInterval(function(){countdown(time)},1000);
+ 	
+ 	
+ 	
+
+ 
+
+
+</script>
+	
 </div>  

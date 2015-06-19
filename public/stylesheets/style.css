@@ -3,7 +3,9 @@
 	src: url("/fonts/rom.ttf");
 }
 
-
+.borrar{
+    border-style: none;
+}
 
 
 .autorBackground{
