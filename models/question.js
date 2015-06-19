@@ -12,7 +12,7 @@ module.exports = function (sequelize, DataTypes) {
 	             validate: {notEmpty: {msg: "Faltaba la Respuesta"}}
 	         },
 	           tiempo: {
-	           	type: DataTypes.INTEGER
+	           	type: DataTypes.INTEGER,
 	           }
 	    }    
 	    
