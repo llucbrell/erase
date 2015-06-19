@@ -1,14 +1,15 @@
 <form method="get" action="/tales/<%= question.id %>/answer">
-    <p>Pregunta: <%= question.pregunta %></p>
+<h3>Responde..</h3>
+    <p><%= question.pregunta %></p>
     <div id="enviarRespuesta">
     <input type="text" name="respuesta" value="responda aquí"/>
     <input type="submit" value="Enviar">
     </div>
     </form>
 <div class="counter">
-<p>Responde rápido antes de que se acabe el tiempo</p>
+<p id="aviso">¡¡Rápido antes de que se acabe el tiempo!!</p>
 
-<p id="cuenta"></p>
+<p><i class="fa fa-clock-o fa-spin fa-fw"></i>&nbsp;<span id="cuenta"><i class="fa fa-spinner fa-pulse fa-fw"></i>&nbsp;</span><p>
 <script type="text/javascript">
 
  var time= <%= question.tiempo %>;                
@@ -22,10 +23,12 @@ function checktime(times){
 	if(times===0){
 		var cuenta =document.getElementById('cuenta');
 		var button =document.getElementById('enviarRespuesta');
+		var aviso =document.getElementById('aviso');
 		//alert("se acabó el tiempo");
 		button.style.visibility="hidden";
 		cuenta.innerHTML= "Acabó el tiempo";
 		window.clearInterval(intervalo);
+        aviso.innerHTML= "Debes ser más rápido..."+ "<a href=\"/tales/<%= question.id %>\" class=\"fa fa-undo fa-fw\">&nbsp;</a><a href=\"/tales/\"><i class=\"fa fa-arrow-left fa-fw\"></i>&nbsp;</a>";
 		 }
 		 else{
         var cuenta =document.getElementById('cuenta');

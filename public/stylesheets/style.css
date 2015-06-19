@@ -5,6 +5,7 @@
 
 .borrar{
     border-style: none;
+    background-color: none;
 }
 
 
@@ -93,3 +94,15 @@
 #ErrorMsg{
 	color: #91B358;
 }
+
+#crear{float: right;}
+
+.search{
+	margin-top: 6%;
+	margin-bottom: 2%;
+	}
+
+section	i, section a{
+		color: #DB6139;
+		color: #77C1FE;
+	}
