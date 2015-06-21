@@ -3,7 +3,7 @@ var router = express.Router();
 
 //add controller
 var talesController= require('../controllers/talesController');
-
+var commentController= require('../controllers/commentController');
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', { title: 'e-rase' });
@@ -31,5 +31,9 @@ router.get('/tales/cuento/:cuentoId(\\d+)', talesController.showCuento);
 router.get('/tales/:questionId(\\d+)/editquestion',talesController.editQuestion);
 router.put('/tales/:questionId(\\d+)', talesController.updateQuestion);
 router.delete('/tales/:questionId(\\d+)', talesController.destroyQuestion);
+
+//rutas de comments
+router.get('/tales/cuento/:cuentoId(\\d+)/comments/new', commentController.newComment);
+router.post('/tales/cuento/:cuentoId(\\d+)/comments', commentController.createComment);
 
 module.exports = router;

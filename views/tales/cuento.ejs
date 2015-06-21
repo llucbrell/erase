@@ -1,5 +1,17 @@
 <h3><%= cuento.titulo %></h3>
 <div class="cuento">
 <p> <%= cuento.cuento %> </p>
+</div>
+<div clas="cuentoPreguntas">
 <p><a href="/tales/"><i class="fa fa-question fa-spin fa-fw"></i>&nbsp; Preguntas</a></p>
 </div>
+<div class="cuentoComments">
+<p><a href="/tales/cuento/<%=cuentoId%>/comments/new">Nuevo comentario</a></p>
+<p>
+<% for(index in cuento.comments){ %>
+   <p> <%= cuento.comments[index].texto %></p>
+   <% } %>
+   </p>
+</div>
+
+

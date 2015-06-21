@@ -13,7 +13,10 @@ exports.load = function (req, res, next, questionId){
 };
 
 exports.loadCuento = function (req, res, next, cuentoId){
-    models.Cuento.find(cuentoId).then(
+    models.Cuento.find({
+      where: {id: Number(cuentoId)},
+      include: [{model: models.Comment}]
+    }).then(
       function (cuento){
       if (cuento) {
          req.cuento= cuento;
@@ -41,7 +44,7 @@ exports.cuentosIndex= function (req, res) {
 //GET tales/cuento
 
 exports.showCuento= function (req, res) {
-  res.render('tales/cuento', {cuento: req.cuento});
+  res.render('tales/cuento', {cuento: req.cuento, cuentoId: req.params.cuentoId});
 };
 
 
@@ -118,7 +121,7 @@ else{
   );
 
  }
-   }
+   };
 
    /*);
 };*/
@@ -127,7 +130,7 @@ else{
 exports.editQuestion = function(req, res){
    var question= req.question;
    res.render('tales/editquestion', {question: question, errors:[]});
-}
+};
 
 //PUT /tales/:id
 
@@ -157,7 +160,7 @@ req.question.validate()
   req.question.save({fields: ["pregunta", "respuesta", "tiempo"]}).then(function(){
     res.redirect('/tales/');});
  }
-}
+};
 /*
 );
 };*/
@@ -168,5 +171,5 @@ req.question.validate()
 exports.destroyQuestion = function (req, res){
   req.question.destroy().then(function(){
     res.redirect('/tales/');
-  }).catch(function(error){next(error)});
-}
+  }).catch(function(error){next(error);});
+};
