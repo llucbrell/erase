@@ -10,7 +10,7 @@
 <div class="text-center">
 <table class="table table-striped table-bordered">
 	<% var i; for(i=0; i<questions.length; i++){ %>
-   <form method="post" action="<%= questions[i].id %>?_method=delete">
+   <form method="post" action="/tales/<%= questions[i].id %>?_method=delete">
      <tr><td>
 
  <% if(questions[i].tiempo=== 50){ %>
@@ -71,7 +71,7 @@
 
 
 
-     <a href="<%= questions[i].id %>"><%= questions[i].pregunta %>&nbsp;&nbsp;</a><a href="<%= questions[i].id %>/editquestion"><i class="fa fa-wrench fa-fw editar"></i>&nbsp;</a>
+     <a href="/tales/<%= questions[i].id %>"><%= questions[i].pregunta %>&nbsp;&nbsp;</a><a href="/tales/<%= questions[i].id %>/editquestion"><i class="fa fa-wrench fa-fw editar"></i>&nbsp;</a>
      
       <button type="submit" class="borrar" onClick="return confirm('Seguro que quieres borrar... <%= questions[i].pregunta %>');">
       <a href="javascript:document.insert.submit"><i class="fa fa-eraser fa-fw" id="borrar"></i></a>

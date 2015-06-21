@@ -21,7 +21,7 @@ if(errors){
   var i=0;
   var errores= new Array();
   for (var prop in errors)errores[i++]={message: errors[prop]};
-    res.render('comments/newcomment', {comment: comment, cuentoId: req.params.cuentoId, errors: errores});
+    res.render('tales/comments/newcomment', {comment: comment, cuentoId: req.params.cuentoId, errors: errores});
  }
 else{
       //guarda DB los campos pregunta y respuesta de question

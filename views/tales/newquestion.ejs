@@ -2,7 +2,7 @@
 <h3>Añadir pregunta: </h3><p>
   <% if (errors.length) { %>
     <span id="ErrorMsg">
-    	Por favor introduce en el cajetín...<br/>
+    	Por favor introduce algo en el cajetín...<br/>
     <% for (var i in errors){ %>
     <span> <%= errors[i].message %>    </span>
      <% } %>
@@ -10,6 +10,6 @@
   <% } %>
 
 	<form method="post" action="/tales/create">
-		<% include _form.ejs %>
+		<% include _nwform.ejs %>
 	</form>
 </p>

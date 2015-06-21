@@ -3,15 +3,16 @@
 <p> <%= cuento.cuento %> </p>
 </div>
 <div clas="cuentoPreguntas">
-<p><a href="/tales/"><i class="fa fa-question fa-spin fa-fw"></i>&nbsp; Preguntas</a></p>
+<p><i class="fa fa-question fa-spin fa-fw"></i>&nbsp;<a href="/tales/">Preguntas</a></p>
 </div>
 <div class="cuentoComments">
-<p><a href="/tales/cuento/<%=cuentoId%>/comments/new">Nuevo comentario</a></p>
-<p>
+<p class="text-right"><a href="/tales/cuento/<%=cuentoId%>/comments/new"><i class="fa fa-comment-o fa-fw">&nbsp;<i class="fa fa-plus fa-fw"></i></i></a></p>
+<p></p>
 <% for(index in cuento.comments){ %>
+  <h3><i class="fa fa-comments fa-fw"></i></h3>
    <p> <%= cuento.comments[index].texto %></p>
    <% } %>
-   </p>
+   
 </div>
 
 
